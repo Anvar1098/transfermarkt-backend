@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "root": "apps",
+  "sourceRoot": "apps/transfermarkt-api/src",
+  "monorepo": true,
+  "compilerOptions": {
+    "deleteOutDir": true
+  },
+  "projects": {
+    "transfermarkt-api": {
+      "type": "application",
+      "root": "apps/transfermarkt-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/transfermarkt-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/transfermarkt-api/tsconfig.app.json"
+      }
+    }
+  }
+}
