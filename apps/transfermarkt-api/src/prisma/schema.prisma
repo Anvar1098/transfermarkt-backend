@@ -1,0 +1,161 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+//=================================================================================================================================
+
+enum Role {
+  USER
+  ADMIN
+  AGENT
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  username  String
+  password  String
+  role      Role      @default(USER)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // Relations
+  transfers     Transfer[]   @relation("userTransfers")
+  notifications Notification[]
+}
+
+//=================================================================================================================================
+
+enum PlayerPosition {
+  GOALKEEPER
+  DEFENDER
+  MIDFIELDER
+  FORWARD
+}
+
+model Player {
+  id          Int            @id @default(autoincrement())
+  name        String
+  position    PlayerPosition
+  age         Int
+  nationality String
+  club        Club?          @relation(fields: [clubId], references: [id])
+  clubId      Int?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  // Relations
+  contracts   Contract[]
+  stats       PlayerStats[]
+  transfers   Transfer[]     @relation("playerTransfers")
+  media       Media[]
+}
+
+//=================================================================================================================================
+
+model Contract {
+  id        Int      @id @default(autoincrement())
+  player    Player   @relation(fields: [playerId], references: [id])
+  playerId  Int
+  start     DateTime
+  end       DateTime
+  fee       Float
+}
+
+//=================================================================================================================================
+
+model PlayerStats {
+  id        Int      @id @default(autoincrement())
+  player    Player   @relation(fields: [playerId], references: [id])
+  playerId  Int
+  goals     Int      @default(0)
+  assists   Int      @default(0)
+  matches   Int      @default(0)
+}
+
+//=================================================================================================================================
+
+model Club {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  stadium   String?
+  founded   Int?
+  country   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  players       Player[]
+  media         Media[]
+  fromTransfers Transfer[] @relation("fromTransfers")
+  toTransfers   Transfer[] @relation("toTransfers")
+  homeMatches   Match[]    @relation("homeMatches")
+  awayMatches   Match[]    @relation("awayMatches")
+}
+
+//=================================================================================================================================
+
+enum TransferStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+model Transfer {
+  id         Int            @id @default(autoincrement())
+  player     Player         @relation("playerTransfers", fields: [playerId], references: [id])
+  playerId   Int
+  fromClub   Club           @relation("fromTransfers", fields: [fromClubId], references: [id])
+  fromClubId Int
+  toClub     Club           @relation("toTransfers", fields: [toClubId], references: [id])
+  toClubId   Int
+  fee        Float
+  status     TransferStatus @default(PENDING)
+  user       User?          @relation("userTransfers", fields: [userId], references: [id])
+  userId     Int?
+  createdAt  DateTime       @default(now())
+}
+
+//=================================================================================================================================
+
+model Match {
+  id          Int      @id @default(autoincrement())
+  homeClub    Club     @relation("homeMatches", fields: [homeClubId], references: [id])
+  homeClubId  Int
+  awayClub    Club     @relation("awayMatches", fields: [awayClubId], references: [id])
+  awayClubId  Int
+  date        DateTime
+  scoreHome   Int?
+  scoreAway   Int?
+  createdAt   DateTime @default(now())
+}
+
+//=================================================================================================================================
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  url       String
+  type      String
+  player    Player?  @relation(fields: [playerId], references: [id])
+  playerId  Int?
+  club      Club?    @relation(fields: [clubId], references: [id])
+  clubId    Int?
+  createdAt DateTime @default(now())
+}
+
+//=================================================================================================================================
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
