@@ -12,6 +12,6 @@ let MatchController = class MatchController {
 };
 exports.MatchController = MatchController;
 exports.MatchController = MatchController = __decorate([
-    (0, common_1.Controller)('match')
+    (0, common_1.Controller)("match")
 ], MatchController);
 //# sourceMappingURL=match.controller.js.map

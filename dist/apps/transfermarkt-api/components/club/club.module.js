@@ -16,7 +16,7 @@ exports.ClubModule = ClubModule;
 exports.ClubModule = ClubModule = __decorate([
     (0, common_1.Module)({
         providers: [club_service_1.ClubService],
-        controllers: [club_controller_1.ClubController]
+        controllers: [club_controller_1.ClubController],
     })
 ], ClubModule);
 //# sourceMappingURL=club.module.js.map

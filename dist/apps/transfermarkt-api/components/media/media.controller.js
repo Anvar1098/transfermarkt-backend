@@ -12,6 +12,6 @@ let MediaController = class MediaController {
 };
 exports.MediaController = MediaController;
 exports.MediaController = MediaController = __decorate([
-    (0, common_1.Controller)('media')
+    (0, common_1.Controller)("media")
 ], MediaController);
 //# sourceMappingURL=media.controller.js.map

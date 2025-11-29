@@ -16,7 +16,7 @@ exports.SearchModule = SearchModule;
 exports.SearchModule = SearchModule = __decorate([
     (0, common_1.Module)({
         providers: [search_service_1.SearchService],
-        controllers: [search_controller_1.SearchController]
+        controllers: [search_controller_1.SearchController],
     })
 ], SearchModule);
 //# sourceMappingURL=search.module.js.map

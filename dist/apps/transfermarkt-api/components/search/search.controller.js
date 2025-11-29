@@ -12,6 +12,6 @@ let SearchController = class SearchController {
 };
 exports.SearchController = SearchController;
 exports.SearchController = SearchController = __decorate([
-    (0, common_1.Controller)('search')
+    (0, common_1.Controller)("search")
 ], SearchController);
 //# sourceMappingURL=search.controller.js.map

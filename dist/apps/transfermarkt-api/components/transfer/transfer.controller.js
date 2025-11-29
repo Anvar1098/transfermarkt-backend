@@ -12,6 +12,6 @@ let TransferController = class TransferController {
 };
 exports.TransferController = TransferController;
 exports.TransferController = TransferController = __decorate([
-    (0, common_1.Controller)('transfer')
+    (0, common_1.Controller)("transfer")
 ], TransferController);
 //# sourceMappingURL=transfer.controller.js.map

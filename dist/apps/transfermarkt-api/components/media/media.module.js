@@ -16,7 +16,7 @@ exports.MediaModule = MediaModule;
 exports.MediaModule = MediaModule = __decorate([
     (0, common_1.Module)({
         providers: [media_service_1.MediaService],
-        controllers: [media_controller_1.MediaController]
+        controllers: [media_controller_1.MediaController],
     })
 ], MediaModule);
 //# sourceMappingURL=media.module.js.map

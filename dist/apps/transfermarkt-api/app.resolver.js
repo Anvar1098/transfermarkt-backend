@@ -13,7 +13,7 @@ exports.AppResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 let AppResolver = class AppResolver {
     sayHello() {
-        return 'GraphQL API Server';
+        return "GraphQL API Server";
     }
 };
 exports.AppResolver = AppResolver;

@@ -6,17 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MatchModule = void 0;
+exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
-const match_service_1 = require("./match.service");
-const match_controller_1 = require("./match.controller");
-let MatchModule = class MatchModule {
+let AppService = class AppService {
+    getHello() {
+        return "Welcome to Transfermarkt Portal!";
+    }
 };
-exports.MatchModule = MatchModule;
-exports.MatchModule = MatchModule = __decorate([
-    (0, common_1.Module)({
-        providers: [match_service_1.MatchService],
-        controllers: [match_controller_1.MatchController],
-    })
-], MatchModule);
-//# sourceMappingURL=match.module.js.map
+exports.AppService = AppService;
+exports.AppService = AppService = __decorate([
+    (0, common_1.Injectable)()
+], AppService);
+//# sourceMappingURL=app.service.js.map

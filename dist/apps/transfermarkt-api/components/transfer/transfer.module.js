@@ -16,7 +16,7 @@ exports.TransferModule = TransferModule;
 exports.TransferModule = TransferModule = __decorate([
     (0, common_1.Module)({
         providers: [transfer_service_1.TransferService],
-        controllers: [transfer_controller_1.TransferController]
+        controllers: [transfer_controller_1.TransferController],
     })
 ], TransferModule);
 //# sourceMappingURL=transfer.module.js.map

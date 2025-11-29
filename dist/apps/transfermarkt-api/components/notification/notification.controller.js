@@ -12,6 +12,6 @@ let NotificationController = class NotificationController {
 };
 exports.NotificationController = NotificationController;
 exports.NotificationController = NotificationController = __decorate([
-    (0, common_1.Controller)('notification')
+    (0, common_1.Controller)("notification")
 ], NotificationController);
 //# sourceMappingURL=notification.controller.js.map

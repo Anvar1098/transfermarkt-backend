@@ -12,6 +12,6 @@ let ClubController = class ClubController {
 };
 exports.ClubController = ClubController;
 exports.ClubController = ClubController = __decorate([
-    (0, common_1.Controller)('club')
+    (0, common_1.Controller)("club")
 ], ClubController);
 //# sourceMappingURL=club.controller.js.map

@@ -12,6 +12,6 @@ let PlayerController = class PlayerController {
 };
 exports.PlayerController = PlayerController;
 exports.PlayerController = PlayerController = __decorate([
-    (0, common_1.Controller)('player')
+    (0, common_1.Controller)("player")
 ], PlayerController);
 //# sourceMappingURL=player.controller.js.map

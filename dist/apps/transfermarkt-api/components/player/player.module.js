@@ -16,7 +16,7 @@ exports.PlayerModule = PlayerModule;
 exports.PlayerModule = PlayerModule = __decorate([
     (0, common_1.Module)({
         providers: [player_service_1.PlayerService],
-        controllers: [player_controller_1.PlayerController]
+        controllers: [player_controller_1.PlayerController],
     })
 ], PlayerModule);
 //# sourceMappingURL=player.module.js.map
